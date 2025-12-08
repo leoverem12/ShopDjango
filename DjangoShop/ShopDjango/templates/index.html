@@ -10,13 +10,13 @@
         </tr>
     </thead>
     <tbody>
-        <!-- {% for product in items %}
+        {% for product in items %}
             <tr>
                 <td>{{ forloop.counter }}</td>
-                <td>{{ product.name}}</td>
-                <td>{{ product.count}}</td>
+                <td>{{ product.Name}}</td>
+                <td>{{ product.Price}}</td>
             </tr>
-        {% endfor %} -->
+        {% endfor %}
         <div>
 	{% if page.has_previous %}
 	<a href="?page={{ page.previous_page_number }}">&lt;</a>

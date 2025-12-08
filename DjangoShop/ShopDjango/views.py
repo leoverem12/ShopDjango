@@ -4,7 +4,7 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def index(request):
-    item = Item.objects.all()
+    item = Item.objects.all().order_by('id')
     paginator = Paginator(item, 2)
 
     if 'page' in request.GET:
