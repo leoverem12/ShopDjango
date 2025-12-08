@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load socialaccount %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="btn btn-primary">Ввійти</button>
+</form>
+<a href="{% provider_login_url 'google' %}">або увійти через могучій Google</a>
+
+{% endblock content %}

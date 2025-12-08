@@ -16,8 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
+router = routers.DefaultRouter()
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("ShopDjango.urls"))
+    path("", include("ShopDjango.urls")),
+    path('accounts/', include('allauth.urls')),
+    path("captcha/", include("captcha.urls")),
+    path("api/", include(router.urls)),
 ]

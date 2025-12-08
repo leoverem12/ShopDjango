@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form method="post" action="{% url 'profile_post' %}" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    {% if request.user.details.avatar %}
+    <p>
+       <img src="{{ MEDIA_URL }}{{ request }}" >
+    </p>
+    {% endif %}
+    <button class="btn btn-primary">Зарєєструвати</button>
+</form>
+{% endblock content %}
