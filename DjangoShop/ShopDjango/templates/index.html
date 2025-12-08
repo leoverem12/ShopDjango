@@ -10,13 +10,22 @@
         </tr>
     </thead>
     <tbody>
-        {% for product in items %}
+        <!-- {% for product in items %}
             <tr>
                 <td>{{ forloop.counter }}</td>
                 <td>{{ product.name}}</td>
                 <td>{{ product.count}}</td>
             </tr>
-        {% endfor %}
+        {% endfor %} -->
+        <div>
+	{% if page.has_previous %}
+	<a href="?page={{ page.previous_page_number }}">&lt;</a>
+    {% endif %}
+	Частина №{{ page.number }} з {{ page.paginator.num_pages }}
+	{% if page.has_next %}
+	<a href="?page={{ page.next_page_number }}">&gt;</a>
+	{% endif %}
+        </div>  
     </tbody>
 </table>
 {% endblock content %}
