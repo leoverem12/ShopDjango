@@ -3,7 +3,7 @@ from . import views
 
 
 urlpatterns =[
-    path("", views.index, name="index"),
+    path("intex", views.index, name="index"),
     path("sign_in/", views.sign_in, name="sign_in"),
     path("sign_up/", views.sign_up, name="sign_up"),
     path("profile/", views.profile_get, name="profile"),

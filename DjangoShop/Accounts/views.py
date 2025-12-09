@@ -28,7 +28,7 @@ from .forms import ProfileForm, UserForm
 # Create your views here.
 
 
-def sign_in(request: HttpRequest):
+def sign_up(request: HttpRequest):
     form = SignUp(data=request.POST or None)
     if request.method == "POST" and form.is_valid():
         form.save()
