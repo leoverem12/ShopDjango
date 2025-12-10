@@ -22,7 +22,6 @@ router = routers.DefaultRouter()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("", include("ShopDjango.urls")),
     path("accs/", include("Accounts.urls")),
     path('accounts/', include('allauth.urls')),
     path("captcha/", include("captcha.urls")),
