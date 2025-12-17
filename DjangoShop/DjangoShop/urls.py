@@ -19,11 +19,11 @@ from django.urls import path, include
 from rest_framework import routers
 router = routers.DefaultRouter()
 
-
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("accs/", include("Accounts.urls")),
+    path("", include("Accounts.urls")),
     path('accounts/', include('allauth.urls')),
     path("captcha/", include("captcha.urls")),
+    path("shop/", include("ShopDjango.urls")),
     path("api/", include(router.urls)),
 ]

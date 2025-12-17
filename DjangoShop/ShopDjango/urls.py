@@ -3,6 +3,5 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path("accs/", include("ShopDjango.urls")),
+    path("shop/", views.index, name="index")
 ]
