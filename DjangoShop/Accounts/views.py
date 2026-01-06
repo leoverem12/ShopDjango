@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 from django.contrib.auth.forms import AuthenticationForm
 from .forms import SignUp, LoginForm
+from django.http import HttpResponse
 
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.decorators import login_required
@@ -40,6 +41,7 @@ def sign_up(request: HttpRequest):
 def sign_in(request: HttpRequest):
     form = LoginForm(request, data=request.POST or None)
     if request.method =="POST" and form.is_valid():
+        response = redirect("index")
         user = authenticate(
             username=form.cleaned_data["username"],
             password=form.cleaned_data["password"]
@@ -52,7 +54,8 @@ def sign_in(request: HttpRequest):
             request.session.set_expiry(None)
         else:
             request.session.set_expiry(0)
-        return redirect("index")
+        response.set_cookie('cookie', '1', max_age=3600)
+        return response
     return render(request, "sign_in.html", dict(form=form))
 
 
